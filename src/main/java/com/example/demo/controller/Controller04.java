@@ -66,4 +66,38 @@ public class Controller04 {
 		// 3
 		// 4.
 	}
+	
+	// 아규먼트와 파라미터가 값이 같다면 생략 가능
+	//경로 : /sub4/link6?email=son@gamil.com
+	/*
+	 * @RequestMapping("link6") 
+	 * public void method6(@RequestParam("email") Stringemail) { 
+	 * 		System.out.println(email); 
+	 * }
+	 */
+	@RequestMapping("link6")
+	public void method6(@RequestParam String email) {
+			System.out.println(email);
+	}
+	
+	//경로 : /sub4/link7?age=33
+	//method7 작성
+	@RequestMapping("link7")
+	public void method7(@RequestParam String age) {
+		System.out.println("나이 : " + age);
+	}
+	
+	//경로 : /sub4/link8
+	@RequestMapping("link8")
+	public void method8(String address) {  //@RequestParam으로 간주해 생략 가능
+		System.out.println(address);
+	}
+	
+	//경로 : /sub4/link9?score=99.7
+	//method9작성
+	@RequestMapping("link9")
+	public void method9(double score) {
+		System.out.println(score);
+	}
+	
 }

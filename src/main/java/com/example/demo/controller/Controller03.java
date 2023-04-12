@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("sub3")
 public class Controller03 {
 	
+	//spring mvc request handler method
+	//spring.io
+	
 	@RequestMapping("link1")
 	public void method1() {
 		System.out.println("/sub3/link1 에서 일하는 메소드!!!");
