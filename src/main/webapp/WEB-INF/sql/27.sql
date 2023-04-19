@@ -27,4 +27,5 @@ SELECT * FROM Suppliers ORDER BY 1 DESC;
 SELECT * FROM Customers ORDER BY 1 DESC;
 
 SELECT * FROM Employees ORDER BY 1 DESC;
+ 
 

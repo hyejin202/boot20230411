@@ -1,0 +1,17 @@
+-- CHANGE COLUMN 컬럼 변경
+DESC MyTable13;
+ALTER TABLE MyTable13 
+CHANGE COLUMN col3 col13 VARCHAR(20);  -- col3 col13으로 변경
+
+INSERT INTO MyTable13 (col13)
+VALUES('가나다라마바사');
+
+SELECT * FROM MyTable13;
+
+ALTER TABLE MyTable13 
+CHANGE COLUMN col13 col3 VARCHAR(3);  -- X, 위험!!
+
+-- 연습) col10 -> col20 VARCHAR(20)
+ALTER TABLE MyTable13
+CHANGE COLUMN col10 col20 VARCHAR(20);
+
