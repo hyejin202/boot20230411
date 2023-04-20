@@ -28,7 +28,6 @@ VALUES (1, 2);  -- OK
 SELECT * FROM MyTable26;
  
  
- 
  -- primary key : 하나의 테이블에 하나
 CREATE TABLE MyTable27 (
 	col1 INT,
