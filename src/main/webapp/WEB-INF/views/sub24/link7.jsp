@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1>${employee.id }번 직원 수정</h1>
-	<form action="/sub24/link8">
+	<form action="/sub24/link8" method="post">
 		<input type="hidden" name="id" value="${employee.id }" />
 		끝 이름 : <input type="text" name="lastName" value="${employee.lastName }" />
 		<br />
@@ -21,7 +21,11 @@
 		<br />
 		전화번호 : <input type="text" name="photo" value="${employee.photo }" />
 		<br />
-		비고 : <input type="text" name="notes" value="${employee.notes }" />
+		비고 :
+		<%--  
+		 <input type="text" name="notes" value="${employee.notes }" />
+		 --%>
+		 <textarea name="notes">${employee.notes }</textarea>
 		<br />
 		<input type="submit" value="수정" />
 	</form>

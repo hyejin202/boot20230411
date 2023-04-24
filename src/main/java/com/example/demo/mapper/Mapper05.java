@@ -70,8 +70,8 @@ public interface Mapper05 {
 				EmployeeId id,
 				LastName,
 				FirstName,
-				BirthDate,
-				Phone,
+				BirthDate birth,
+				Photo,
 				Notes
 			FROM Employees
 			WHERE EmployeeId = #{id}
@@ -81,12 +81,11 @@ public interface Mapper05 {
 	@Update("""
 			UPDATE Employees
 			SET 
-				lastName = #{name},
-				firstName = #{firstName},
 				lastName = #{lastName},
-				birthDate birth = #{birth},
+				firstName = #{firstName},
+				birthDate = #{birth},
 				photo = #{photo},
-				notes = #[notes}
+				notes = #{notes}
 			WHERE EmployeeId = #{id}
 			""")
 	int sql7(Employee employee);

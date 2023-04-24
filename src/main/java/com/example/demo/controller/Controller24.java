@@ -71,5 +71,6 @@ public class Controller24 {
 	@RequestMapping("link8")
 	public void method8(Employee employee) {
 		int cnt = mapper.sql7(employee);
+		System.out.println(cnt + "개 행 추가됨");
 	}
 }
