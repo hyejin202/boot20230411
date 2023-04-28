@@ -12,7 +12,7 @@ public class ComponentA {
 	public void setComp(ComponentB comp) {
 		this.comp = comp;
 	}
-	public void ComponentB getComp {
-		this.comp = comp;
+	public ComponentB getComp() {
+		return comp;
 	}
 }

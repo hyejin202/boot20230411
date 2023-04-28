@@ -9,4 +9,7 @@ public class ComponentE {
 	@Autowired
 	private ComponentD comp;
 	
+	public ComponentD getComp() {
+		return comp;
+	}
 }

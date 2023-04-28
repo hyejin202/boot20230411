@@ -40,7 +40,7 @@ public class MyConfig1 {
 		o.setCom(bean3());
 		
 		return o;
-		return new ComponentB();
+		
 	}
 	
 	
