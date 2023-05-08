@@ -11,55 +11,64 @@ public interface Mapper07 {
 
 	@Select("""
 			<script>
-				<bind name="pattern" value="'%' + keyword + '%'" />
-			SELECT 
-				CustomerId id,
-				CustomerName name, 
-				ContactName,
-				Address
-			FROM Customers
+			<bind name="pattern" value="'%' + keyword + '%'" />
+
+			SELECT
+				customerId id,
+				customerName name,
+				contactName,
+				address
+			FROM
+				Customers
+			WHERE
+				CustomerName LIKE #{pattern}
 			ORDER BY id DESC
-			WHERE customerName LIKE #{pattern}
 			</script>
 			""")
 	List<Customer> sql1(String keyword);
-	
+
 	@Select("""
 			<script>
-				<bind name="p" value="'%' + keyword + '%'" />
-			SELECT 
+			<bind name="p" value="'%' + s + '%'" />
+
+			SELECT
 				EmployeeId id,
-				FirstName, 
+				FirstName,
 				LastName
-			FROM Employees
-			ORDER BY EmployeeId DESC
-			WHERE FirstName LIKE #{p}
-					OR LastName LIKE #{p}
+			FROM
+				Employees
+			WHERE
+				FirstName LIKE #{p}
+				OR LastName LIKE #{p}
+			ORDER BY id DESC
 			</script>
 			""")
 	List<Employee> sql2(String s);
 
 	@Select("""
 			<script>
-			SELECT COUNT(*) 
+			SELECT COUNT(*)
 			FROM Customers
 			
 			<if test="false">
-			WHERE CustomerId = 10
+			WHERE CustomerID = 10
 			</if>
 			</script>
 			""")  //if절이 true이면 where절이 붙고 false이면 where절이 붙지 않음
 	Integer sql3();
+
 	
 	@Select("""
 			<script>
-			SELECT COUNT(*) 
+			
+			SELECT COUNT(*)
 			FROM Customers
 			
-			<if test="keyword != null">			
+			<if test="keyword neq null">
 				<bind name="pattern" value="'%' + keyword + '%'" />
 				WHERE CustomerName LIKE #{pattern}
-			</if>
+			</if> 
+			
 			</script>
 			""")
 	Integer sql4(String keyword);
@@ -69,12 +78,18 @@ public interface Mapper07 {
 			SELECT AVG(Price)
 			FROM Products
 			
-			<if test="${i neq 0}">
+			<if test="cid neq 0">
 				WHERE CategoryId = #{cid}
 			</if>
-			<script>
+			</script>
 			""")
-	Double sql5(int cid); 
-	
-	
+	Double sql5(int cid);
 }
+
+
+
+
+
+
+
+

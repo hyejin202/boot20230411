@@ -7,10 +7,10 @@ import com.example.demo.domain.*;
 
 @Configuration
 public class MyConfig1 {
-	// 스프링이 이 메소드를 사용해서 객체를 만듦
+
+	// 스프링이 이 메소드를 사용 해서 객체를 만듦
 	// 스프링 빈 (스프링이 관리하는 객체)
-	// 빈이름 == 메소드 이름과 같음
-	
+	// 빈 이름 == 메소드 이름과 같음
 	@Bean
 	public Object bean1() {
 		return new Object();
@@ -24,11 +24,12 @@ public class MyConfig1 {
 	
 	@Bean
 	public ComponentA bean2() {
+		
 		ComponentA o = new ComponentA(bean3());
 		
 		return o;
-		
 	}
+	
 	@Bean
 	public ComponentB bean3() {
 		return new ComponentB();
@@ -40,10 +41,11 @@ public class MyConfig1 {
 		o.setCom(bean3());
 		
 		return o;
-		
 	}
-	
-	
-	
-	
 }
+
+
+
+
+
+

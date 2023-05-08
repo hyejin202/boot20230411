@@ -6,5 +6,6 @@ SELECT title, body, writer FROM Board;
 
 
 
+
 SELECT COUNT(*) FROM Board;
 
