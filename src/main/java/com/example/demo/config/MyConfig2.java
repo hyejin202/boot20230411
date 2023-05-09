@@ -20,7 +20,7 @@ public class MyConfig2 {
 		//기본설정 (로그인 필터가 securityFilterChain안에 설정) 
 		http.formLogin()
 			.loginPage("/sub33/mylogin")   //로그인 페이지 설정
-			.defaultSuccessUrl("/list", true) //로그인 성공시 디폴트 페이지 :"/list"
+			.defaultSuccessUrl("/sub33/loginSuccess", true) //로그인 성공시 디폴트 페이지 
 			.usernameParameter("id")  //username
 			.passwordParameter("pw");  //password
 		
