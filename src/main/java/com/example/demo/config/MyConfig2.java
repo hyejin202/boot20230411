@@ -3,7 +3,10 @@ package com.example.demo.config;
 import java.util.*;
 
 import org.springframework.context.annotation.*;
+import org.springframework.security.access.prepost.*;
+import org.springframework.security.config.annotation.method.configuration.*;
 import org.springframework.security.config.annotation.web.builders.*;
+import org.springframework.security.core.authority.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.core.userdetails.User.*;
 import org.springframework.security.crypto.bcrypt.*;
@@ -12,6 +15,7 @@ import org.springframework.security.provisioning.*;
 import org.springframework.security.web.*;
 
 @Configuration
+@EnableMethodSecurity
 public class MyConfig2 {
 
 	@Bean
@@ -48,14 +52,20 @@ public class MyConfig2 {
 		UserDetails user1 = User.builder()
 				.username("user1")
 				.password(pw1)
-				.authorities(List.of())  //권한, null이면 안돼서 빈 리스트 넣음
+				.authorities(List.of(   //권한
+						new SimpleGrantedAuthority("admin"),  //admin권한 부여
+						new SimpleGrantedAuthority("manager") //manager권한 부여
+						))  
 				.build();
 		UserDetails user2 = User.builder()
 				.username("user2")
 				.password(pw2)
-				.authorities(List.of())  //권한
+				.authorities(List.of(       //권한
+						new SimpleGrantedAuthority("manager"),
+						new SimpleGrantedAuthority("user")
+						))  
 				.build();
-		//매니저한테 건네줌
+		//manager한테 건네줌
 		return new InMemoryUserDetailsManager(user1, user2);
 	}	
 	
